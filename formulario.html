@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario Basico (Cambio GIT)</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        
+    </head>
+    
+    <body>
+
+        <!-- Validar Formulario con Jquery -->
+        <script>
+            // En JQUERY Esto es lo mismo que utilizar  
+            //$(document).ready(function(){
+
+            // $(function(){ // Validación estándar
+            //     $('#mi_form').validate();
+            // });
+            
+            $(function(){ // Validación personalizada con reglas
+                $('#mi_form').validate({
+                    rules:{ // Reglas
+                        user_mail:{ // name del input
+                            required: true, // consulta si es requerido
+                            email: true // si es de tipo email
+                        }
+                    },
+                    messages:{ // mensajes de validación
+                        user_mail:{ // name del input
+                            required: " TE FALTÓ COMPLETAR EL MAIL", // Mensaje al estar vacío
+                            email: " MAIL INVÁLIDO!!!!" // Mensaje al no corresponder el formato de mail
+                        }
+                    }
+                });
+            });
+
+        </script>
+
+        <h1>Formularios</h1>
+    
+        <p>Formulario básico enviado por GET</p>
+
+        <form action="" method="get" id="mi_form">
+            <ul>
+                <li>
+                    <label for="usuario">Nombre:</label>
+                    <input type="text" name="usuario" placeholder="Ingrese nombre usuario" value="Mi nombre" required>        
+                </li>
+                <li>
+                    <label for="pass">Contraseña:</label>
+                    <input type="password" name="pass" minlength="3" maxlength="5" required>
+                </li>
+                <li>
+                    <label for="edad">Edad:</label>
+                    <input type="number" name="edad" min="1" max="6" placeholder="Ingrese edad" required>        
+                </li>
+                <li>
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" id="mail" name="user_mail" value="Correo@pordefecto.com">
+                </li>
+                <li>
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" value="2022-03-01" min="2022-03-10" max="2022-03-15" >
+                </li>
+                <li>
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" value="12:50">
+                </li>
+                <li>
+                    <label for="msg">Mensaje:</label>
+                    <textarea id="msg" name="user_message" maxlength="100" rows="4"></textarea>
+                </li>
+                <li>
+                    <label for="checkbox">Colores Preferidos</label>
+                    <input type="checkbox" id="checkbox" name="checkbox1"> Amarillo
+                    <input type="checkbox" id="checkbox" name="checkbox2"> rojo
+                    <input type="checkbox" id="checkbox" name="checkbox3"> verde
+                </li>
+                <li>
+                    <label for="radio">Color:</label>
+                    <input type="radio" id="radio" name="radio"> Amarillo
+                    <input type="radio" id="radio" name="radio"> rojo
+                    <input type="radio" id="radio" name="radio"> verde
+                </li>
+                <li>
+                    <select name="estacion">
+                        <option selected>Seleccionar</option>
+                        <option >Verano</option>
+                        <option>Otoño</option>
+                        <option>Invierno</option>
+                        <option>Primavera</option>
+                    </select>
+                </li>
+                <li>
+                    <button type="submit" name="submit" value="1">ENVIAR</button>
+                </li>
+            </ul>
+        </form>
+    </body>
+</html>
